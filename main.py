@@ -39,21 +39,7 @@ video_update_args.add_argument("name", type = str, help = "Name of the video is 
 video_update_args.add_argument("views", type = int, help = "Please enter views on the video")
 video_update_args.add_argument("likes", type = int, help = "Please enter likes on the video")
 video_update_args.add_argument("favorites", type = int)
-
-
-# # empty dict that stores videos
-# videos = {}
-
-# # function to abort if video_id does not exist
-# def abort_video_no_exist(video_id):
-#     if video_id not in videos:
-#         abort(404, message = "Video id is not valid...")
-
-# # function to abort if video_id already exists
-# def abort_video_exists(video_id):
-#     if video_id in videos:
-#         abort(409, message = "Video already exists with that id...")
-# 
+ 
 # define how objects are serialized
 resource_fields = {
     'id' : fields.Integer,
@@ -106,7 +92,6 @@ class Video(Resource):
         db.session.commit()
 
         return result
-
 
     # delete request to delete a video
     def delete(self, video_id):
